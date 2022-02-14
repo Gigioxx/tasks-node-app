@@ -46,11 +46,36 @@ class Tasks {
         console.log();
         this.listArr.forEach( (task, i) => {
 
-            const idx = `${i + 1}`.green;
+            const idx = `${i + 1}`;
             const { description, completedIn } = task;
             const status = ( completedIn ) ? 'Completed'.green : 'Pending'.red;
 
-            console.log( `${ idx } ${ description } :: ${ status }` );
+            console.log( `${ (idx + '.').green } ${ description } :: ${ status }` );
+
+        });
+
+    }
+
+    showCompletedPending( completed = true ) {
+
+        console.log();
+        let index = 0;
+        this.listArr.forEach( (task) => {
+
+            const { description, completedIn } = task;
+            const status = ( completedIn ) ? 'Completed'.green : 'Pending'.red;
+
+            if ( completed ) {
+                if ( completedIn ) {
+                    index += 1;
+                    console.log( `${ (index + '.').green } ${ description } :: ${ completedIn }` );
+                }
+            } else {
+                if ( !completedIn ) {
+                    index += 1;
+                    console.log( `${ (index + '.').green } ${ description } :: ${ status }` );
+                }
+            }
 
         });
 

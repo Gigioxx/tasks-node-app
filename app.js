@@ -26,14 +26,25 @@ const main = async() => {
         opt = await inquirerMenu();
 
         switch ( opt ) {
+            // Create Task
             case '1':
-                // Create
                 const description = await readInput('Description:');
                 tasks.createTask( description );
             break;
 
+            // Show all tasks
             case '2':
                 tasks.fullList();
+            break;
+
+            // Show completed tasks
+            case '3':
+                tasks.showCompletedPending( true );
+            break;
+
+            // Show pending tasks
+            case '4':
+                tasks.showCompletedPending( false );
             break;
         }
 
