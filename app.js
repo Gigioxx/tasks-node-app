@@ -18,10 +18,8 @@ const main = async() => {
     const tasksInfo = readInfo();
 
     if ( tasksInfo ) {
-        // Establecer tareas
+        tasks.loadTasksFromArray( tasksInfo );
     }
-
-    await pause();
 
     do {
         // Show Menu
@@ -39,7 +37,7 @@ const main = async() => {
             break;
         }
 
-        // saveInfo( tasks.listArr );
+        saveInfo( tasks.listArr );
 
         await pause();
 

@@ -26,6 +26,13 @@ class Tasks {
         this._list = {};
     }
 
+    loadTasksFromArray( tasks = [] ) {
+
+        tasks.forEach( task =>{
+            this._list[ task.id ] = task;    
+        });
+        
+    }
 
     createTask( description = '' ) {
 
