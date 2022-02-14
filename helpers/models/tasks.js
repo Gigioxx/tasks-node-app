@@ -1,4 +1,4 @@
-
+const Task = require('./task');
 
 /**
  * _list:
@@ -13,6 +13,13 @@ class Tasks {
         this._list = {};
     }
 
+
+    createTask( description = '' ) {
+
+        const task = new Task( description );
+        this._list[ task.id ] = task;
+
+    }
 
 }
 
