@@ -26,18 +26,26 @@ class Tasks {
         this._list = {};
     }
 
+    createTask( description = '' ) {
+
+        const task = new Task( description );
+        this._list[ task.id ] = task;
+
+    }
+    
+    deleteTask( id = '' ) {
+
+        if ( this._listado[id] ) {
+            delete this._listado[id];
+        }
+
+    }
+
     loadTasksFromArray( tasks = [] ) {
 
         tasks.forEach( task =>{
             this._list[ task.id ] = task;    
         });
-
-    }
-
-    createTask( description = '' ) {
-
-        const task = new Task( description );
-        this._list[ task.id ] = task;
 
     }
 
