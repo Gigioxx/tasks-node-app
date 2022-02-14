@@ -31,13 +31,28 @@ class Tasks {
         tasks.forEach( task =>{
             this._list[ task.id ] = task;    
         });
-        
+
     }
 
     createTask( description = '' ) {
 
         const task = new Task( description );
         this._list[ task.id ] = task;
+
+    }
+
+    fullList() {
+
+        console.log();
+        this.listArr.forEach( (task, i) => {
+
+            const idx = `${i + 1}`.green;
+            const { description, completedIn } = task;
+            const status = ( completedIn ) ? 'Completed'.green : 'Pending'.red;
+
+            console.log( `${ idx } ${ description } :: ${ status }` );
+
+        });
 
     }
 
