@@ -8,9 +8,17 @@ const main = async() => {
 
     console.log('Hola mundo');
 
-    showMenu();
+    let opt = '';
+
+    do {
+        opt = await showMenu();
+        console.log({ opt });
+
+        if ( opt !== '0' ) await pause();
+
+    } while ( opt !== '0' );
     
-    pause();
+    // pause();
 
 }
 
