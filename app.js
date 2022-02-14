@@ -1,6 +1,6 @@
 require('colors');
 
-const { saveInfo } = require('./helpers/saveFile');
+const { saveInfo, readInfo } = require('./helpers/saveFile');
 const {
     inquirerMenu,
     pause,
@@ -14,6 +14,14 @@ const main = async() => {
 
     let opt = '';
     const tasks = new Tasks();
+
+    const tasksInfo = readInfo();
+
+    if ( tasksInfo ) {
+        // Establecer tareas
+    }
+
+    await pause();
 
     do {
         // Show Menu
