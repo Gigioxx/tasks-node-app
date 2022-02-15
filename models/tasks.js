@@ -35,8 +35,8 @@ class Tasks {
     
     deleteTask( id = '' ) {
 
-        if ( this._listado[id] ) {
-            delete this._listado[id];
+        if ( this._list[id] ) {
+            delete this._list[id];
         }
 
     }

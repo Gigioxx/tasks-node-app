@@ -5,7 +5,8 @@ const {
     inquirerMenu,
     pause,
     readInput,
-    listDeletingTasks
+    listDeletingTasks,
+    confirm
 } = require('./helpers/inquirer');
 const Tasks = require('./models/tasks');
 
@@ -48,10 +49,16 @@ const main = async() => {
                 tasks.showCompletedPending( false );
             break;
 
-
+            // Delete task from the list
             case '6':
                 const id = await listDeletingTasks( tasks.listArr );
-                console.log({ id });
+                if ( id !== '0' ) {
+                    const ok = await confirm('Are you sure?');
+                    if ( ok ) {
+                        tasks.deleteTask( id );
+                        console.log('Task deleted');
+                    }
+                }
             break;
         }
 
