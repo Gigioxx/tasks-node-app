@@ -6,7 +6,8 @@ const {
     pause,
     readInput,
     listDeletingTasks,
-    confirm
+    confirm,
+    showChecklist
 } = require('./helpers/inquirer');
 const Tasks = require('./models/tasks');
 
@@ -47,6 +48,12 @@ const main = async() => {
             // Show pending tasks
             case '4':
                 tasks.showCompletedPending( false );
+            break;
+
+            // Select tasks to complete
+            case '5':
+                const ids = await showChecklist( tasks.listArr );
+                console.log( ids );
             break;
 
             // Delete task from the list
