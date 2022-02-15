@@ -53,7 +53,7 @@ const main = async() => {
             // Select tasks to complete
             case '5':
                 const ids = await showChecklist( tasks.listArr );
-                console.log( ids );
+                tasks.toggleCompleted( ids );
             break;
 
             // Delete task from the list
